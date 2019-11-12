@@ -55,7 +55,12 @@ namespace WebLibera.Controllers
             {
                 db.Users.Add(user);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                var userDetail = db.Users.Where(x => x.Username == user.Username && x.Password == user.Password).FirstOrDefault();
+                user = userDetail;
+                user.Message = "funco";
+                Session["userID"] = user.Id;
+                Session["Nombre de usuario"] = user.Username;
+                return RedirectToAction("Index", "Entries");
             }
 
             return View(user);

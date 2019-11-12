@@ -19,9 +19,8 @@
 <body>
 @if (Session["userID"]  != null)
 {
-    @Session[0]
-    <p>Hola </p>
-    @Session["userID"]
+    <p>Hola  @Session["nombre de usuario"]</p>
+    
 }
     <p>
         @Html.ActionLink("Create New", "Create")
