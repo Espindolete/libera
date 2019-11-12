@@ -1,0 +1,73 @@
+﻿@model WebLibera.Models.User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Variables</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/login.css">
+</head>
+<body>
+
+
+    @using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "login-form" }))
+    {
+
+
+        <h1>Login</h1>
+        @Html.AntiForgeryToken()
+        <div>@Html.DisplayFor(model => model.Message)</div>
+
+        <div class="txtb">
+
+            <input class="" id="Username" name="Username" type="text">
+            <span data-placeholder="Username"></span>
+        </div>
+        <div>@Html.ValidationMessageFor(model => model.Username)</div>
+
+        <div class="txtb">
+            <input class="" id="Password" name="Password" type="password" >
+            <span data-placeholder="Password"></span>
+        </div>
+        <div>@Html.ValidationMessageFor(model => model.Password)</div>
+        
+        <input type="submit" class="logbtn" value="Login">
+
+        <div class="bottom-text">
+            No tienes una cuenta?
+            <a href="#">Sign up</a>
+        </div>
+    }
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $(".txtb input").on("focus", function () {
+            $(this).addClass("focus");
+        });
+        $(".txtb input").on("blur", function () {
+            if ($(this).val() == "")
+                $(this).removeClass("focus");
+        });
+    </script>
+
+    <!--<script>
+
+        //var nombre;
+
+
+        ////nombre=prompt("Ingresa tu nombre");
+        //edad=prompt("Ingresa tu edad");
+
+        //alert(nombre);
+
+        //document.write(nombre+" "+edad);
+        //console.log(nombre);
+    </script>-->
+
+</body>
+</html>
