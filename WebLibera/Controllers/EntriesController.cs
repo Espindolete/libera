@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -46,13 +47,42 @@ namespace WebLibera.Controllers
         // POST: Entries/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,Tittle,Content,UserId")] Entry entry)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entries.Add(entry);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.UserId = new SelectList(db.Users, "Id", "Username", entry.UserId);
+        //    return View(entry);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Tittle,Content,UserId")] Entry entry)
+        public ActionResult Create(EntryCreationModel entry,HttpPostedFileBase imageFile=null)
         {
-            if (ModelState.IsValid)
+            if (entry.Content!=null &&entry.Tittle!=null)
             {
-                db.Entries.Add(entry);
+                Entry entry1 = new Entry();
+                entry1.Content = entry.Content;
+                entry1.UserId = entry.UserId;
+                entry1.Tittle = entry.Tittle;
+                entry1.ImagePath = null;
+                if(imageFile != null)
+                {
+                    string pic = System.IO.Path.GetFileName(imageFile.FileName);
+                    string path = System.IO.Path.Combine(Server.MapPath("~/images"), pic);
+                    imageFile.SaveAs(path);
+                    entry1.ImagePath = path;
+                }
+
+
+                db.Entries.Add(entry1);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

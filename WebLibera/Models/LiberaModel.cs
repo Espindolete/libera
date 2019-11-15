@@ -9,6 +9,8 @@ namespace WebLibera.Models
         public LiberaModel()
             : base("name=LiberaModel")
         {
+            Database.SetInitializer<LiberaModel
+                >(null);
         }
 
         public virtual DbSet<User> Users { get; set; }

@@ -74,7 +74,7 @@ namespace WebLibera.Controllers
             {
                 return View("Index", user);
             }
-            List<User> xd = db.Users.ToList();
+            
             var userDetail = db.Users.Where(x => x.Username == user.Username && x.Password == user.Password).FirstOrDefault();
             if (userDetail == null)
             {
