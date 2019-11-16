@@ -34,6 +34,8 @@ namespace WebLibera.Controllers
             {
                 return HttpNotFound();
             }
+
+
             return View(entry);
         }
 
@@ -64,7 +66,7 @@ namespace WebLibera.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EntryCreationModel entry,HttpPostedFileBase imageFile=null)
+        public ActionResult Create(EntryCreationModel entry)
         {
             if (entry.Content!=null &&entry.Tittle!=null)
             {
@@ -73,15 +75,13 @@ namespace WebLibera.Controllers
                 entry1.UserId = entry.UserId;
                 entry1.Tittle = entry.Tittle;
                 entry1.ImagePath = null;
-                if(imageFile != null)
+                entry1.imgData = null;
+                if(entry.File != null)
                 {
-                    string pic = System.IO.Path.GetFileName(imageFile.FileName);
-                    string path = System.IO.Path.Combine(Server.MapPath("~/images"), pic);
-                    imageFile.SaveAs(path);
-                    entry1.ImagePath = path;
+                    byte[] uploadedFile = new byte[entry.File.InputStream.Length];
+                    entry.File.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
+                    entry1.imgData = uploadedFile;
                 }
-
-
                 db.Entries.Add(entry1);
                 db.SaveChanges();
                 return RedirectToAction("Index");

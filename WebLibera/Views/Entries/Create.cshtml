@@ -43,8 +43,9 @@
             </div>
     
             <div>
-                <input type="file" accept="image/*" name="imageFile" id="imageFile"/>
-
+                @Html.LabelFor(x => x.File)
+                @Html.TextBoxFor(x => x.File, new { type = "file" })
+                @Html.ValidationMessageFor(x => x.File)
             </div>
 
             <div class="form-group">

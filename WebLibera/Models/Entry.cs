@@ -14,7 +14,7 @@ namespace WebLibera.Models
         public string Tittle { get; set; }
         public string Content { get; set; }
         public string ImagePath { get; set; }
-
+        public byte[] imgData { get; set; }
         
 
         public int UserId { get; set; }

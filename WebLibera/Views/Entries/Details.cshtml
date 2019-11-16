@@ -19,27 +19,40 @@
             <dt>
                 @Html.DisplayNameFor(model => model.User.Username)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.User.Username)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Tittle)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Tittle)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Content)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Content)
             </dd>
-    
+            <dt>
+                @Html.DisplayNameFor(model=> model.imgData)
+            </dt>
+            <dd>
+                @if (Model.imgData != null)
+                {
+
+                    var base64 = Convert.ToBase64String(Model.imgData);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+                    <img src="@imgSrc" />
+                }
+            </dd>
+
         </dl>
     </div>
     <p>
