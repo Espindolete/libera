@@ -3,30 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebLibera.Models;
 
 namespace WebLibera.Controllers
 {
     public class HomeController : Controller
     {
 
-        [RequireHttps]
         public ActionResult Home()
         {
-            return View();
+            IEnumerable<Entry> entries = this.GetFirst6Entries();
+            return View(entries);
         }
 
-        public ActionResult About()
+        public IEnumerable<Entry> GetFirst6Entries()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            using (LiberaModel db=new LiberaModel()) {
+                IEnumerable<Entry> first6 = db.Entries.OrderByDescending(b => b.Id).Take(6).ToList();
+                return first6;
+            }
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

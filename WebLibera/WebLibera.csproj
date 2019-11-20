@@ -190,7 +190,7 @@
     <Content Include="Content\lib\ionicons\fonts\ionicons.ttf" />
     <Content Include="Content\lib\ionicons\fonts\ionicons.woff" />
     <Content Include="Content\lib\owlcarousel\LICENSE" />
-    <None Include="Views\Home\Contact.cshtml" />
+    <None Include="Views\Home\Home.cshtml" />
     <Content Include="Content\contactform\contactform.js" />
     <Content Include="Content\contactform\Readme.txt" />
     <Content Include="Content\css\scss-files.txt" />
@@ -283,8 +283,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\View.cshtml" />
@@ -293,11 +291,9 @@
     <Content Include="Views\Entries\Details.cshtml" />
     <Content Include="Views\Entries\Edit.cshtml" />
     <Content Include="Views\Entries\Index.cshtml" />
-    <Content Include="Views\Users\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

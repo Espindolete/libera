@@ -15,12 +15,17 @@ namespace WebLibera.Controllers
     {
         private LiberaModel db = new LiberaModel();
 
+
+        
+
         // GET: Entries
         public ActionResult Index()
         {
             var entries = db.Entries.Include(e => e.User);
             return View(entries.ToList());
         }
+
+
 
         // GET: Entries/Details/5
         public ActionResult Details(int? id)

@@ -1,31 +1,345 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<WebLibera.Models.Entry>
+@{
+    Layout = null;
+    int boxes = 0;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Libera Chaco</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <link href="~/Content/img/favicon.png" rel="icon">
+    <link href="~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+    <link href="~/Content/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="~/Content/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Content/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <link href="~/Content/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--==========================
+    Header
+    ============================-->
+    <header id="header">
+
+        <div id="topbar">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="logo float-left">
+                <h1 class="text-light"><a href="#intro" class="scrollto"><span>Libera</span></a></h1>
+                <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+            </div>
+
+            <nav class="main-nav float-right d-none d-lg-block">
+                <ul>
+                    <li class="active"><a href="#intro">Inicio</a></li>
+                    <li><a href="#about">Acerca de Nosotros</a></li>
+                    <li><a href="#services">Campañas</a></li>
+                    <li><a href="#call-to-action">Donar</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+            </nav><!-- .main-nav -->
+
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+      Intro Section
+    ============================-->
+    <section id="intro" class="clearfix">
+        <div class="container d-flex h-100">
+            <div class="row justify-content-center align-self-center">
+                <div class="col-md-6 intro-info order-md-first order-last">
+                    <h2>Asociación Animalista<br>Delegación <span>Chaco</span></h2>
+                    <div>
+                        <a href="#about" class="btn-get-started scrollto">Comencemos</a>
+                    </div>
+                </div>
+
+                <!--<div class="col-md-6 intro-img order-md-last order-first">
+                    <img src="img/intro-img.svg" alt="" class="img-fluid">
+                  </div>
+                </div>-->
+
+            </div>
+    </section><!-- #intro -->
+
+    <main id="main">
+
+        <!--==========================
+          About Us Section
+        ============================-->
+        <section id="about">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-5 col-md-6">
+                        <div class="about-img">
+                            <img src="img/libera-home.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 col-md-6">
+                        <div class="about-content">
+                            <h2>Acerca de Nosotros</h2>
+                            <h3>En calidad de Organización de la Sociedad Civil nos dedicamos a la defensa de los derechos de los animales.</h3>
+                            <p>Asociación Animalista LIBERA! Argentina esgrime sus bases en la Educación como motor principal de cambio y así poder erradicar el Especismo del que son víctimas los demás animales. LIBERA! promueve el respeto hacia los demás animales por el sólo hecho de tener capacidad de sentir, como tú y como yo.</p>
+
+                            <p>Nuestras acciones apuntan a que todos los animales sean considerados como individuos que merecen ser respetados y en consecuencia no usados. Nuestros esfuerzos apuntan a liberar a los demás animales con la acción cotidiana, con la educación y la promoción de valores</p>
+                            <p>Llevamos a cabo campañas de todo tipo para informar y concienciar  acerca de la explotación a la que son sometidos los animales no-humanos, buscando una transformación política y social que permita mejorar la vida de los animales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- #about -->
+        <!--==========================
+          Services Section
+        ============================-->
+        <section id="services" class="section-bg">
+
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>Campañas y Eventos</h3>
+                    <p>Llevamos a cabo campañas de todo tipo, buscando sensibilizar acerca de la explotación a la que son sometidos los animales no-humanos pero, sobre todo, impulsando los cambios legislativos necesarios que permitan mejorar la vida de los animales.</p>
+                </header>
+                <div class="row">
+                    @foreach(var entry in Model)
+                    {
+                        <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                            <div class="box">
+                                <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                <h4 class="title">
+                                    <a href="@Url.Action("Details","Entries",new { entry.Id})">@entry.Tittle</a>
+                                </h4>
+                                @{ 
+                                    string mmm = "";
+                                    if (entry.Content.Length > 200)
+                                    {
+                                        mmm = entry.Content.Substring(0, 198).Insert(198, "...");
+                                    }else
+                                    {
+                                        mmm = entry.Content;
+                                    }
+                                }
+                                <p class="description">@mmm</p>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div>
+                                @if (Session["userID"] == null)
+                                {
+                                    <a class="">Edit</a>
+                                }
+                            </div>
+                            <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
+                            <h4 class="title"><a href="">MARCHA SUSTITUCION A SANGRE YA</a></h4>
+                            <p class="description">
+                                NI HUMANOS EXCLUIDOS NI CABALLOS MALTRATADOS !!!!
+                                EXIJIMOS LA REGLAMENTACION DE LA ORDENANZA MUNICIPAL 11857 !!!!!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div>
+                                @if (Session["userID"] == null)
+                                {
+                                    <a class="">Edit</a>
+                                }
+                            </div>
+                            <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
+                            <h4 class="title"><a href="">Jornada sobre Tracción A Sangre</a></h4>
+                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #eafde7;"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
+                            <h4 class="title">
+                                <a href="">
+                                    Foro argentino "Zoológicos en Revolución"
+                                </a>
+                            </h4>
+                            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="icon" style="background: #e1eeff;"><i class="ion-ios-world-outline" style="color: #2282ff;"></i></div>
+                            <h4 class="title"><a href="">Conferencia en Argentina: "El veganismo es una postura política"</a></h4>
+                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div>
+                                @if (Session["userID"] == null)
+                                {
+                                    <a class="">Edit</a>
+                                }
+                            </div>
+                            <div class="icon" style="background: #ecebff;"><i class="ion-ios-clock-outline" style="color: #8660fe;"></i></div>
+                            <h4 class="title"><a href="">Recolección de Juguetes y ropa por el "Dia del niño"</a></h4>
+                            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- #services -->
+        <!--==========================
+          Call To Action Section
+        ============================-->
+        <section id="call-to-action" class="wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-left">
+                        <h3 class="cta-title">Como Ayudar</h3>
+                        <p class="cta-text">Tu colaboración nos permite realizar y continuar nuestro trabajo en defensa de los animales. Gracias al apoyo económico de personas como tú es posible llevar adelante todos nuestros proyectos y ayudar al mayor número de animales posibles.</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="file:///C:/Users/Pablo/Downloads/Rapid/Rapid/Donar.html#about">Donar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- #call-to-action -->
+        
+        <!--==========================
+          Frequently Asked Questions Section
+        ============================-->
+        <section id="faq">
+            <div class="container">
+                <header class="section-header">
+                    <h3>Preguntas Frecuentes</h3>
+                    <p>En esta sección podes encontrar las preguntas mas frecuentes y sus respuestas</p>
+                </header>
+
+                <ul id="faq-list" class="wow fadeInUp">
+                    <li>
+                        <a data-toggle="collapse" class="collapsed" href="#faq1">Que hacer en caso de encontrar un animal abandonado?<i class="ion-android-remove"></i></a>
+                        <div id="faq1" class="collapse" data-parent="#faq-list">
+                            <p>
+                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq2" class="collapsed">Como puedo ayudar?<i class="ion-android-remove"></i></a>
+                        <div id="faq2" class="collapse" data-parent="#faq-list">
+                            <p>
+                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq3" class="collapsed">Cuales son los pasos para realizar una denuncia?<i class="ion-android-remove"></i></a>
+                        <div id="faq3" class="collapse" data-parent="#faq-list">
+                            <p>
+                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq4" class="collapsed">Con quien me contacto? <i class="ion-android-remove"></i></a>
+                        <div id="faq4" class="collapse" data-parent="#faq-list">
+                            <p>
+                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq5" class="collapsed">Puedo aportar economicamente? <i class="ion-android-remove"></i></a>
+                        <div id="faq5" class="collapse" data-parent="#faq-list">
+                            <p>
+                                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a data-toggle="collapse" href="#faq6" class="collapsed">Que eventos realizan? <i class="ion-android-remove"></i></a>
+                        <div id="faq6" class="collapse" data-parent="#faq-list">
+                            <p>
+                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+                            </p>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </section><!-- #faq -->
+
+    </main>
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer" class="section-bg">
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Chaco <strong>Resistencia</strong>. Todos los Derechos Reservados.
+            </div>
+            <div class="credits">
+                Diseñado por <a href="https://bootstrapmade.com/">Informatorio Chaco</a>
+            </div>
+        </div>
+    </footer><!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+    <!-- <div id="preloader"></div> -->
+    <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+    <script src="~/Content/lib/jquery/jquery.min.js"></script>
+    <script src="~/Content/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Content/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/lib/easing/easing.min.js"></script>
+    <script src="~/Content/lib/mobile-nav/mobile-nav.js"></script>
+    <script src="~/Content/lib/wow/wow.min.js"></script>
+    <script src="~/Content/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/Content/lib/counterup/counterup.min.js"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/lib/lightbox/js/lightbox.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="~/Content/contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="~/Content/js/main.js"></script>
+
+</body>
+</html>
