@@ -79,8 +79,6 @@ namespace WebLibera.Controllers
                 entry1.Content = entry.Content;
                 entry1.UserId = entry.UserId;
                 entry1.Tittle = entry.Tittle;
-                entry1.ImagePath = null;
-                entry1.imgData = null;
                 if(entry.File != null)
                 {
                     byte[] uploadedFile = new byte[entry.File.InputStream.Length];
@@ -91,7 +89,6 @@ namespace WebLibera.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.UserId = new SelectList(db.Users, "Id", "Username", entry.UserId);
             return View(entry);
         }
