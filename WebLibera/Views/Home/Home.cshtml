@@ -1,7 +1,11 @@
-﻿@model IEnumerable<WebLibera.Models.Entry>
+﻿@model WebLibera.Models.HomeModel
+
+
 @{
     Layout = null;
     int boxes = 0;
+    
+    int AQs = 0;
 }
 
 <!DOCTYPE html>
@@ -58,7 +62,7 @@
                     <li><a href="#about">Acerca de Nosotros</a></li>
                     <li><a href="#services">Campañas</a></li>
                     <li><a href="#call-to-action">Donar</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
                 </ul>
             </nav><!-- .main-nav -->
 
@@ -129,7 +133,7 @@
                 <div class="row">
                     
                     <!--  Solo 6 eventos/campañas para que tenga sentido ir a una pagina solo con campañas    -->
-                    @foreach(var entry in Model)
+                    @foreach(var entry in Model.first6Camp)
                     {
                         boxes++;
                         <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
@@ -200,14 +204,18 @@
                 </header>
 
                 <ul id="faq-list" class="wow fadeInUp">
-                    <li>
-                        <a data-toggle="collapse" class="collapsed" href="#faq1">Que hacer en caso de encontrar un animal abandonado?<i class="ion-android-remove"></i></a>
-                        <div id="faq1" class="collapse" data-parent="#faq-list">
-                            <p>
-                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                            </p>
-                        </div>
-                    </li>
+                    @foreach(var AQ in Model.FAQ)
+                    {
+                        AQs++;
+                        <li>
+                            <a data-toggle="collapse" class="collapsed" href="#faq@(AQ.Id)">@AQ.Question<i class="ion-android-remove"></i></a>
+                            <div id="faq@(AQ.Id)" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    @AQ.Answer
+                                </p>
+                            </div>
+                        </li>
+                    }
 
                     <li>
                         <a data-toggle="collapse" href="#faq2" class="collapsed">Como puedo ayudar?<i class="ion-android-remove"></i></a>
@@ -298,6 +306,18 @@
 
     <!-- Template Main Javascript File -->
     <script src="~/Content/js/main.js"></script>
+    <script>
+        
+       (function($) {
+           $(document).ready(function () {
+               if ( '@ViewBag.Position' != '') {
+                 $('html, body').animate({
+                   'scrollTop':   $('#@(ViewBag.Position)').offset().top
+                 }, 2000);
+               }
+            });
+        })(jQuery);
 
+    </script>
 </body>
 </html>

@@ -10,19 +10,18 @@ namespace WebLibera.Controllers
     public class HomeController : Controller
     {
 
-        public ActionResult Home()
+        public ActionResult Home(string asd=" ")
         {
-            IEnumerable<Entry> entries = this.GetFirst6Entries();
-            return View(entries);
-        }
-
-        public IEnumerable<Entry> GetFirst6Entries()
-        {
-            using (LiberaModel db=new LiberaModel()) {
-                IEnumerable<Entry> first6 = db.Entries.OrderByDescending(b => b.Id).Take(6).ToList();
-                return first6;
+            ViewBag.Position = asd;
+            HomeModel hm = new HomeModel();
+            using (LiberaModel db = new LiberaModel())
+            {
+                hm.first6Camp= db.Entries.OrderByDescending(b => b.Id).Take(6).ToList();
+                hm.FAQ = db.FAQ.ToList();
             }
+            return View(hm);
         }
+       
 
     }
 }

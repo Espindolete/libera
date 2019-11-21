@@ -150,9 +150,15 @@
     <Compile Include="Migrations\201911162117491_imgbinary2.Designer.cs">
       <DependentUpon>201911162117491_imgbinary2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911211750434_FAQ.cs" />
+    <Compile Include="Migrations\201911211750434_FAQ.Designer.cs">
+      <DependentUpon>201911211750434_FAQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AnsweredQuestions.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\EntryCreationModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\LiberaModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -292,6 +298,7 @@
     <Content Include="Views\Entries\Details.cshtml" />
     <Content Include="Views\Entries\Edit.cshtml" />
     <Content Include="Views\Entries\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLibera.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911162117491_imgbinary2.resx">
       <DependentUpon>201911162117491_imgbinary2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911211750434_FAQ.resx">
+      <DependentUpon>201911211750434_FAQ.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

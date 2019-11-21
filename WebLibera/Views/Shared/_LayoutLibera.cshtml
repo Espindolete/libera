@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Libera Chaco</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <link href="~/Content/img/favicon.png" rel="icon">
+        <link href="~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+        <link href="~/Content/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="~/Content/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/Content/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="~/Content/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="~/Content/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <link href="~/Content/css/style.css" rel="stylesheet">
+    </head>
+
+</head>
+<body>
+    <!--==========================
+    Header
+    ============================-->
+    <header id="header">
+
+        <div id="topbar">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="logo float-left">
+                <!--<h1 class="text-light"><a href="#intro" class="scrollto"><span>Libera</span></a></h1>-->
+                <a href="@Url.Action("Home","Home")" class="scrollto"><img src="~/Content/img/logo2.png" class="img-responsive" alt=""></a>
+            </div>
+
+            <nav class="main-nav float-right d-none d-lg-block">
+                <ul>
+                    <li class="active"><a href="@Url.Action("Home","Home")">Inicio</a></li>
+                    <li>@Html.ActionLink("Acerca de Nosotros", "Home", "Home", null, null, "action", null, null)</li>
+                    <li><a href="@Url.Action("Home","Home",new { asd="services"})">Campañas</a></li>
+                    <li><a href="@Url.Action("Home","Home",new { asd="call-to-action"})">Donar</a></li>
+                    <li><a href="@Url.Action("Home","Home",new { asd="faq"})">Portfolio</a></li>
+                </ul>
+            </nav><!-- .main-nav -->
+
+        </div>
+    </header><!-- #header -->
+
+    @RenderBody()
+
+
+</body>
+
+
+<footer id="footer" class="section-bg">
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Chaco <strong>Resistencia</strong>. Todos los Derechos Reservados.
+        </div>
+        <div class="credits">
+            Diseñado por <a href="https://bootstrapmade.com/">Informatorio Chaco</a>
+        </div>
+    </div>
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- Uncomment below i you want to use a preloader -->
+<!-- <div id="preloader"></div> -->
+
+
+<script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+<script src="~/Content/lib/jquery/jquery.min.js"></script>
+<script src="~/Content/lib/jquery/jquery-migrate.min.js"></script>
+<script src="~/Content/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Content/lib/easing/easing.min.js"></script>
+<script src="~/Content/lib/mobile-nav/mobile-nav.js"></script>
+<script src="~/Content/lib/wow/wow.min.js"></script>
+<script src="~/Content/lib/waypoints/waypoints.min.js"></script>
+<script src="~/Content/lib/counterup/counterup.min.js"></script>
+<script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="~/Content/lib/isotope/isotope.pkgd.min.js"></script>
+<script src="~/Content/lib/lightbox/js/lightbox.min.js"></script>
+<!-- Contact Form JavaScript File -->
+<script src="~/Content/contactform/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="~/Content/js/main.js"></script>
+</html>

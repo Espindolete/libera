@@ -15,6 +15,7 @@ namespace WebLibera.Models
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Entry> Entries { get; set; }
+        public virtual DbSet<AnsweredQuestions> FAQ { get; set; }
 
 
      

@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<WebLibera.Models.Entry>
 
 @{
+    Layout = "~/Views/Shared/_LayoutLibera.cshtml";
     int? eee = null;
     if (Session["userID"] != null)
     {
