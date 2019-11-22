@@ -279,6 +279,7 @@
     <Content Include="Content\lib\waypoints\waypoints.min.js" />
     <Content Include="Content\lib\wow\wow.js" />
     <Content Include="Content\lib\wow\wow.min.js" />
+    <None Include="Views\Home\Donar.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

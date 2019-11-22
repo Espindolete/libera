@@ -22,6 +22,12 @@ namespace WebLibera.Controllers
             return View(hm);
         }
        
+        public ActionResult Donar()
+        {
+
+
+            return View();
+        }
 
     }
 }
