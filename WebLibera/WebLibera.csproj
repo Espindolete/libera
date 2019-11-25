@@ -138,21 +138,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911151554265_lol.cs" />
-    <Compile Include="Migrations\201911151554265_lol.Designer.cs">
-      <DependentUpon>201911151554265_lol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911162113211_imgbinary.cs" />
-    <Compile Include="Migrations\201911162113211_imgbinary.Designer.cs">
-      <DependentUpon>201911162113211_imgbinary.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911162117491_imgbinary2.cs" />
-    <Compile Include="Migrations\201911162117491_imgbinary2.Designer.cs">
-      <DependentUpon>201911162117491_imgbinary2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911211750434_FAQ.cs" />
-    <Compile Include="Migrations\201911211750434_FAQ.Designer.cs">
-      <DependentUpon>201911211750434_FAQ.cs</DependentUpon>
+    <Compile Include="Migrations\201911252001481_initial.cs" />
+    <Compile Include="Migrations\201911252001481_initial.Designer.cs">
+      <DependentUpon>201911252001481_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnsweredQuestions.cs" />
@@ -321,17 +309,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911151554265_lol.resx">
-      <DependentUpon>201911151554265_lol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911162113211_imgbinary.resx">
-      <DependentUpon>201911162113211_imgbinary.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911162117491_imgbinary2.resx">
-      <DependentUpon>201911162117491_imgbinary2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911211750434_FAQ.resx">
-      <DependentUpon>201911211750434_FAQ.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911252001481_initial.resx">
+      <DependentUpon>201911252001481_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
