@@ -1,7 +1,10 @@
 ﻿@model WebLibera.Models.Entry
 
 @{
-    Layout = null;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Users/Index");
+    }
 }
 
 <!DOCTYPE html>

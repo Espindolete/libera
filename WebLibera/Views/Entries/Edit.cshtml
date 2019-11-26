@@ -1,7 +1,12 @@
 ﻿@model WebLibera.Models.Entry
 
 @{
-    Layout = null;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Users/Index");
+    }
+//podria hacer otra comprobacion para ver si el que quiere intentar editar no es el dueño, pero de cualquier forma no puede entrar desde la pagina asi q no importa mucho
+
 }
 
 <!DOCTYPE html>
