@@ -1582,10 +1582,9 @@ h6 {
     opacity: 0;
     transition: .5s ease;
 }
-
-    .entryImage:hover {
+.entryImage:hover {
         opacity: 1;
-    }
+}
 
 div .boxlink {
     display:block;
@@ -1597,4 +1596,9 @@ div .boxlink {
 }
 .evento{
     position:relative;
+}
+.miniImg{
+    max-width:10vw;
+    max-height:auto;
+
 }
