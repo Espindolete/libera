@@ -1,6 +1,7 @@
 ﻿@model WebLibera.Models.Entry
 
 @{
+    Layout = "~/Views/Shared/_LayoutLibera.cshtml";
     if (Session["userID"] == null)
     {
         Response.Redirect("~/Users/Index");

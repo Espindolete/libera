@@ -18,7 +18,6 @@
     <meta content="" name="description">
 
     <link href="~/Content/img/favicon.png" rel="icon">
-    <link href="~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
 
@@ -138,21 +137,36 @@
                         boxes++;
                         <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
                             <div class="box">
+                                <a href="@Url.Action("Details","Entries",new { entry.Id})" class="boxlink"></a>
+                                <div class="container">
                                 <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
                                 <h4 class="title">
                                     <a href="@Url.Action("Details","Entries",new { entry.Id})">@entry.Tittle</a>
                                 </h4>
-                                @{ 
+                                @{
                                     string mmm = "";
                                     if (entry.Content.Length > 200)
                                     {
                                         mmm = entry.Content.Substring(0, 198).Insert(198, "...");
-                                    }else
+                                    }
+                                    else
                                     {
                                         mmm = entry.Content;
                                     }
                                 }
                                 <p class="description">@mmm</p>
+                                @if (entry.imgData != null)
+                                {
+
+                                    var base64 = Convert.ToBase64String(entry.imgData);
+                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                    <a href="@Url.Action("Details","Entries",new { entry.Id})">
+                                        <img src="@imgSrc"  class="entryImage"/>
+                                    </a>
+                                }
+
+
+                                </div>
                             </div>
                         </div>
                     }
@@ -186,7 +200,7 @@
                         <p class="cta-text">Tu colaboración nos permite realizar y continuar nuestro trabajo en defensa de los animales. Gracias al apoyo económico de personas como tú es posible llevar adelante todos nuestros proyectos y ayudar al mayor número de animales posibles.</p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="file:///C:/Users/Pablo/Downloads/Rapid/Rapid/Donar.html#about">Donar</a>
+                        <a class="cta-btn align-middle" href="@Url.Action("Donar","Home")">Donar</a>
                     </div>
                 </div>
 

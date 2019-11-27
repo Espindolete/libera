@@ -1,27 +1,34 @@
 ﻿@model WebLibera.Models.EntryCreationModel
 
 @{
+    Layout = "~/Views/Shared/_LayoutLibera.cshtml";
     if (Session["userID"] == null)
     {
         Response.Redirect("~/Users/Index");
     }
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
 <body>
-    @using (Html.BeginForm("Create","Entries",FormMethod.Post,new {enctype = "multipart/form-data" }))
+
+    <section id="intro" class="clearfix">
+        <div class="container d-flex h-100">
+            <div class="row justify-content-center align-self-center">
+                <div class="col-md-6 intro-info order-md-first order-last">
+                    <h2><br>Crea una campaña o evento<br><span></span></h2>
+                    <!--<div>
+                      <a href="#about" class="btn-get-started scrollto">Comencemos</a>
+                    </div>-->
+                </div>
+
+            </div>
+    </section><!-- #intro -->
+    @using (Html.BeginForm("Create", "Entries", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         if (Session["userID"] != null)
         {
             @Html.AntiForgeryToken()
         }
-        
+
         <div class="form-horizontal">
             <h4>Entry</h4>
             <hr />
@@ -33,7 +40,7 @@
                     @Html.ValidationMessageFor(model => model.Tittle, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -41,7 +48,7 @@
                     @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div>
                 @Html.LabelFor(x => x.File)
                 @Html.TextBoxFor(x => x.File, new { type = "file" })
@@ -49,10 +56,10 @@
             </div>
 
             <div class="form-group">
-                <input type="hidden" name="UserId" id="UserId" value="@Session["userID"]"/>
-             
+                <input type="hidden" name="UserId" id="UserId" value="@Session["userID"]" />
+
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -60,7 +67,7 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>

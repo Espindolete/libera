@@ -11,42 +11,46 @@
 
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-@if (Session["userID"]  != null)
-{
-    <p>Hola  @Session["nombre de usuario"]</p>
-    
-}
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
+<section id="intro" class="clearfix">
+    <div class="container d-flex h-100">
+        <div class="row justify-content-center align-self-center">
+            <div class="col-md-6 intro-info order-md-first order-last">
+                <h2><br>Eventos y Campañas<br><span></span></h2>
+                <!--<div>
+                  <a href="#about" class="btn-get-started scrollto">Comencemos</a>
+                </div>-->
+            </div>
+
+        </div>
+</section><!-- #intro -->
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tittle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.User.Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tittle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            @if (eee== item.UserId)
-            {   <td>
+            @if (eee == item.UserId)
+            {
+                <td>
                     Usted
                 </td>
-            }else { 
+            }
+            else
+            {
                 <td>
                     @Html.DisplayFor(modelItem => item.User.Username)
                 </td>
@@ -59,15 +63,13 @@
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.Id })
-                    @if (eee == item.User.Id)
-                    {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    }
+                @if (eee == item.User.Id)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                }
             </td>
         </tr>
     }
-    
-    </table>
-</body>
-</html>
+
+</table>

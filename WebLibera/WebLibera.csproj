@@ -156,6 +156,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\favicon.png" />
     <Content Include="Content\img\logo2.png" />
     <Content Include="Content\login.css" />
     <Content Include="favicon.ico" />
@@ -190,8 +191,6 @@
     <Content Include="Content\contactform\Readme.txt" />
     <Content Include="Content\css\scss-files.txt" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\img\about-img.jpg" />
-    <Content Include="Content\img\apple-touch-icon.png" />
     <Content Include="Content\img\Caballos-4.jpg" />
     <Content Include="Content\img\clients\client-1.png" />
     <Content Include="Content\img\clients\client-2.png" />
@@ -201,7 +200,6 @@
     <Content Include="Content\img\clients\client-6.png" />
     <Content Include="Content\img\clients\client-7.png" />
     <Content Include="Content\img\clients\client-8.png" />
-    <Content Include="Content\img\favicon.png" />
     <Content Include="Content\img\features-1.svg" />
     <Content Include="Content\img\features-2.svg" />
     <Content Include="Content\img\intro-bg.jpg" />
@@ -216,15 +214,6 @@
     <Content Include="Content\img\portfolio\web1.jpg" />
     <Content Include="Content\img\portfolio\web2.jpg" />
     <Content Include="Content\img\portfolio\web3.jpg" />
-    <Content Include="Content\img\team-1.jpg" />
-    <Content Include="Content\img\team-2.jpg" />
-    <Content Include="Content\img\team-3.jpg" />
-    <Content Include="Content\img\team-4.jpg" />
-    <Content Include="Content\img\testimonial-1.jpg" />
-    <Content Include="Content\img\testimonial-2.jpg" />
-    <Content Include="Content\img\testimonial-3.jpg" />
-    <Content Include="Content\img\testimonial-4.jpg" />
-    <Content Include="Content\img\why-us.jpg" />
     <Content Include="Content\js\main.js" />
     <Content Include="Content\lib\animate\animate.css" />
     <Content Include="Content\lib\animate\animate.min.css" />
