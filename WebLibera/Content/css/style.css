@@ -48,20 +48,20 @@ h6 {
 /* Back to top button */
 
 .back-to-top {
-  position: fixed;
-  display: none;
-  background: #1bb1dc;
-  color: #fff;
-  width: 44px;
-  height: 44px;
-  text-align: center;
-  line-height: 1;
-  font-size: 16px;
-  border-radius: 50%;
-  right: 15px;
-  bottom: 15px;
-  transition: background 0.5s;
-  z-index: 11;
+    position: fixed;
+    display: none;
+    background: #2D8000;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 1;
+    font-size: 16px;
+    border-radius: 50%;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+    z-index: 11;
 }
 
 .back-to-top i {
@@ -530,10 +530,10 @@ h6 {
 }
 
 #about .about-content ul li i {
-  font-size: 20px;
-  padding-right: 4px;
-  color: #1bb1dc;
-}
+    font-size: 20px;
+    padding-right: 4px;
+    color: #2D8000;
+    }
 
 #about .about-img {
   position: relative;
@@ -830,9 +830,9 @@ h6 {
   color: #fff;
 }
 
-#portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 a:hover {
-  color: #1bb1dc;
-}
+    #portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 a:hover {
+        color: #2D8000;
+    }
 
 #portfolio .portfolio-item .portfolio-wrap .portfolio-info p {
   padding: 0;
@@ -1010,9 +1010,9 @@ h6 {
   color: #fff;
 }
 
-#team .member .social a:hover {
-  color: #1bb1dc;
-}
+    #team .member .social a:hover {
+        color: #2D8000;
+    }
 
 #team .member .social i {
   font-size: 18px;
@@ -1264,10 +1264,10 @@ h6 {
   transition: 0.3s;
 }
 
-#footer .footer-top .social-links a:hover {
-  background: #0a98c0;
-  color: #fff;
-}
+    #footer .footer-top .social-links a:hover {
+        background: #2D8000;
+        color: #fff;
+    }
 
 #footer .footer-top h4 {
   font-size: 14px;
