@@ -3,7 +3,7 @@ namespace WebLibera.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class lol : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -14,7 +14,6 @@ namespace WebLibera.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Tittle = c.String(),
                         Content = c.String(),
-                        ImagePath = c.String(),
                         UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

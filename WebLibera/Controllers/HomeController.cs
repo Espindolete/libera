@@ -14,12 +14,22 @@ namespace WebLibera.Controllers
         {
             ViewBag.Position = asd;
             HomeModel hm = new HomeModel();
+            hm.FAQ = null;
+            hm.first6Camp = null;
             using (LiberaModel db = new LiberaModel())
             {
-                hm.first6Camp= db.Entries.OrderByDescending(b => b.Id).Take(6).ToList();
-                hm.FAQ = db.FAQ.ToList();
+                
+                
+                    hm.first6Camp = db.Entries.OrderByDescending(b => b.Id).Take(6).ToList();
+                    
+              
             }
             return View(hm);
+        }
+
+        public ActionResult Donar()
+        {
+            return View();
         }
        
 

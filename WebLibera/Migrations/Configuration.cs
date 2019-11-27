@@ -10,6 +10,7 @@ namespace WebLibera.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "WebLibera.Models.LiberaModel";
         }
 
         protected override void Seed(WebLibera.Models.LiberaModel context)

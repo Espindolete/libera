@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -51,8 +51,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -138,21 +138,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911151554265_lol.cs" />
-    <Compile Include="Migrations\201911151554265_lol.Designer.cs">
-      <DependentUpon>201911151554265_lol.cs</DependentUpon>
+    <Compile Include="Migrations\201911111611137_InitialCreate.cs" />
+    <Compile Include="Migrations\201911111611137_InitialCreate.Designer.cs">
+      <DependentUpon>201911111611137_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911162113211_imgbinary.cs" />
-    <Compile Include="Migrations\201911162113211_imgbinary.Designer.cs">
-      <DependentUpon>201911162113211_imgbinary.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911162117491_imgbinary2.cs" />
-    <Compile Include="Migrations\201911162117491_imgbinary2.Designer.cs">
-      <DependentUpon>201911162117491_imgbinary2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911211750434_FAQ.cs" />
-    <Compile Include="Migrations\201911211750434_FAQ.Designer.cs">
-      <DependentUpon>201911211750434_FAQ.cs</DependentUpon>
+    <Compile Include="Migrations\201911232024269_nombre.cs" />
+    <Compile Include="Migrations\201911232024269_nombre.Designer.cs">
+      <DependentUpon>201911232024269_nombre.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnsweredQuestions.cs" />
@@ -197,6 +189,7 @@
     <Content Include="Content\lib\ionicons\fonts\ionicons.ttf" />
     <Content Include="Content\lib\ionicons\fonts\ionicons.woff" />
     <Content Include="Content\lib\owlcarousel\LICENSE" />
+    <Content Include="Views\Home\Donar.cshtml" />
     <None Include="Views\Home\Home.cshtml" />
     <Content Include="Content\contactform\contactform.js" />
     <Content Include="Content\contactform\Readme.txt" />
@@ -320,17 +313,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911151554265_lol.resx">
-      <DependentUpon>201911151554265_lol.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911111611137_InitialCreate.resx">
+      <DependentUpon>201911111611137_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911162113211_imgbinary.resx">
-      <DependentUpon>201911162113211_imgbinary.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911162117491_imgbinary2.resx">
-      <DependentUpon>201911162117491_imgbinary2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911211750434_FAQ.resx">
-      <DependentUpon>201911211750434_FAQ.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911232024269_nombre.resx">
+      <DependentUpon>201911232024269_nombre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -363,9 +350,9 @@
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
