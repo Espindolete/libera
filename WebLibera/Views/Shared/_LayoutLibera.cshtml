@@ -54,10 +54,10 @@
             <nav class="main-nav float-right d-none d-lg-block">
                 <ul>
                     <li class="active"><a href="@Url.Action("Home","Home")">Inicio</a></li>
-                    <li>@Html.ActionLink("Acerca de Nosotros", "Home", "Home", null, null, "action", null, null)</li>
+                    <li><a href="@Url.Action("Home","Home",new { asd="about"})">Acerca de Nosotros</a></li>
                     <li><a href="@Url.Action("Home","Home",new { asd="services"})">Campañas</a></li>
                     <li><a href="@Url.Action("Home","Home",new { asd="call-to-action"})">Donar</a></li>
-                    <li><a href="@Url.Action("Home","Home",new { asd="faq"})">Portfolio</a></li>
+                    <li><a href="@Url.Action("Home","Home",new { asd="faq"})">Preguntas Frecuentes</a></li>
                 </ul>
             </nav><!-- .main-nav -->
 
