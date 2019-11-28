@@ -2,58 +2,87 @@
 
 @{
     Layout = "~/Views/Shared/_LayoutLibera.cshtml";
+    var imgSrc = "";
+    if (Model.entry.imgData != null)
+    {
+
+        var base64 = Convert.ToBase64String(Model.entry.imgData);
+        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+    }
 }
 
 
+<section id="intro" class="clearfix">
+    <div class="container d-flex h-100">
+        <div class="row justify-content-center align-self-center">
+            <div class="col-md-6 intro-info order-md-first order-last">
+                <h2><br>Eventos y Campañas<br><span></span></h2>
+                <!--<div>
+                  <a href="#about" class="btn-get-started scrollto">Comencemos</a>
+                </div>-->
+            </div>
 
-<body>
-    <div>
-        <h4>Entry</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.entry.User.Username)
-            </dt>
+        </div>
+</section><!-- #intro -->
 
-            <dd>
-                @Html.DisplayFor(model => model.entry.User.Username)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.entry.Tittle)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.entry.Tittle)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.entry.Content)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.entry.Content)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model=> model.entry.imgData)
-            </dt>
-            <dd>
-                @if (Model.entry.imgData != null)
-                {
-
-                    var base64 = Convert.ToBase64String(Model.entry.imgData);
-                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-                    <img src="@imgSrc" />
-                }
-            </dd>
-
-        </dl>
+<section id="about" class="evento">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="@imgSrc">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="event-content">
+                    <h2>@Model.entry.Tittle</h2>
+                    <h3>
+                        @*En calidad de Organización de la Sociedad Civil nos dedicamos a la defensa de los derechos de los animales.*@
+                        @*aca podriamos poner otra cosa xd*@
+                    </h3>
+                    <p>@Model.entry.Content</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>
-        @if (Session["userID"] != null)
-        {
-            @Html.ActionLink("Edit", "Edit", new { id = Model.entry.Id })
-        }
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
+</section><!-- #about -->
+
+
+<h3> Mira otros eventos </h3>
+<table class="table tablediv">
+    @foreach (var item in Model.otrasEntries)
+    {
+        <tr class="entryRow">
+            <td style="height:10vw; width:10%;">
+                <a href="@Url.Action("Details","Entries",new { item.Id})" class="boxlink">
+                    @if (item.imgData != null)
+                    {
+
+                        var base64 = Convert.ToBase64String(item.imgData);
+                        var imgSrc2 = String.Format("data:image/gif;base64,{0}", base64);
+                        <img src="@imgSrc2" class="miniImg" />
+                    }
+                    else
+                    {
+                        <img />
+
+                    }
+                </a>
+            </td>
+            <td style="width:70%">
+                <a href="@Url.Action("Details","Entries",new { item.Id})" class="boxlink">
+                    <div class="row">
+                        <h2>@item.Tittle</h2>
+                    </div>
+
+                    <div class="row">
+                        <p>@item.Content</p>
+
+                    </div>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -19,5 +19,18 @@ namespace WebLibera.Models
 
         public int UserId { get; set; }
         public virtual User User { get; set; }
+
+        public Entry(int Id, string Yitle, string Content, byte[] imgData,int UserId)
+        {
+            this.Id = Id;
+            this.Tittle = Tittle;
+            this.Content = Content;
+            this.imgData = imgData;
+            this.UserId = UserId;
+        }
+
+        public Entry()
+        {
+        }
     }
 }

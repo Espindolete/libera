@@ -41,8 +41,13 @@ namespace WebLibera.Controllers
             }
             DetailEntryModel detailEntry=new DetailEntryModel();
             detailEntry.entry= db.Entries.Find(id);
-            detailEntry.entry.User = null;//porque sino se ve la contraseña xd
-            detailEntry.otrasEntries = db.Entries.Where(e => e.Id != id).Take(3).ToList();
+            detailEntry.entry.User = new User();
+            detailEntry.otrasEntries = db.Entries
+            .Where(e => e.Id != id).Take(3).ToList();
+            foreach (var entry in detailEntry.otrasEntries)
+            {
+                entry.User = new User();//porque si no se ve la contraseña de los usuarios si se fijan en algun lado
+            }
             if (detailEntry.entry == null)
             {
                 return HttpNotFound();

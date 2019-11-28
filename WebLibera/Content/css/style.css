@@ -1617,3 +1617,23 @@ table{
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }
+
+
+
+.event-content {
+    padding-top: 40px;
+    min-height: 300px;
+}
+
+#about .event-content h2 {
+    color: #1b1506;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+#about .event-content h3 {
+    color: #151103;
+    font-weight: 400;
+    font-size: 22px;
+    font-style: italic;
+}
