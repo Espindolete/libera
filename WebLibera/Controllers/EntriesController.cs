@@ -21,27 +21,33 @@ namespace WebLibera.Controllers
         // GET: Entries
         public ActionResult Index()
         {
-            var entries = db.Entries.Include(e => e.User);
+            var entries = db.Entries;
+            foreach(var entry in entries)
+            {
+                entry.User = null;//porque si no se ve la contraseña de los usuarios si se fijan en algun lado
+            }
             return View(entries.ToList());
         }
 
 
 
         // GET: Entries/Details/5
+        //podria hacer una sobrecarga y pasarle la entry para que no tenga q conseguir de la base de datos siempre pero es muy tarde para hacerlo ahora
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Entry entry = db.Entries.Find(id);
-            if (entry == null)
+            DetailEntryModel detailEntry=new DetailEntryModel();
+            detailEntry.entry= db.Entries.Find(id);
+            detailEntry.entry.User = null;//porque sino se ve la contraseña xd
+            detailEntry.otrasEntries = db.Entries.Where(e => e.Id != id).Take(3).ToList();
+            if (detailEntry.entry == null)
             {
                 return HttpNotFound();
             }
-
-
-            return View(entry);
+            return View(detailEntry);
         }
 
         // GET: Entries/Create
