@@ -27,15 +27,11 @@
 {
     @Html.ActionLink("Create New", "Create")
 }
-<table class="table">
-
-    
+<table class="table tablediv">
     @foreach (var item in Model)
     {
-        <tr>
-
-            
-            <td style="width:10vw;">
+        <tr class="entryRow">
+            <td style="height:10vw; width:10%;">
                 <a href="@Url.Action("Details","Entries",new { item.Id})" class="boxlink">
                     @if (item.imgData != null)
                     {
@@ -52,7 +48,7 @@
                     }
                 </a>
             </td>
-            <td>
+            <td style="width:70%">
                 <a href="@Url.Action("Details","Entries",new { item.Id})" class="boxlink">
                     <div class="row">
                         <h2>@item.Tittle</h2>

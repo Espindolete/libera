@@ -1594,11 +1594,26 @@ div .boxlink {
     left: 0;
     top: 0;
 }
+table{
+    table-layout:fixed;
+    max-width:95%;
+    margin-left:20px;
+   
+}
+.tablediv {
+    padding: 20px;
+}
 .evento{
     position:relative;
 }
 .miniImg{
-    max-width:10vw;
-    max-height:auto;
-
+    display:block;
+    width:90%;
+}
+.entryRow {
+    transition: all 0.3s ease-in-out;
+}
+.entryRow:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
 }
