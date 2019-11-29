@@ -24,9 +24,15 @@
 
         </div>
 </section><!-- #intro -->
+
+
 @if (Session["userID"] != null)
 {
-    @Html.ActionLink("Create New", "Create")
+    <h3>
+        <a href="@Url.Action("Create","Entries")">
+            Quieres crear un evento nuevo? Haz clic aquí
+        </a>
+    </h3>
 }
 
 <table class="table tablediv">

@@ -48,6 +48,25 @@
     </div>
 </section><!-- #about -->
 
+@if (Session["userID"] != null)
+{
+    <div class="row">
+        <div class="col-lg-8 cta-btn-container text-center" >
+        </div>
+    <div class="col-lg-1 cta-btn-container text-center" style="border: solid #00ff90">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.entry.Id },new {@class="cta-btn align-middle" })
+    </div>
+    <div class="col-lg-1 cta-btn-container text-center"style="border: solid #ff0000">
+        @Html.ActionLink("Delete", "Delete", new { id = Model.entry.Id},new {@class="cta-btn align-middle"  })
+    </div>
+
+    </div>
+}
+
+<div class="col-lg-3 cta-btn-container text-center">
+    <a class="cta-btn align-middle" href="@Url.Action("Index","Entries")">Mira todos los eventos</a>
+</div>
+
 
 <h3> Mira otros eventos </h3>
 <table class="table tablediv">

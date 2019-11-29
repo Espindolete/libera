@@ -130,46 +130,50 @@
                     <p>Llevamos a cabo campañas de todo tipo, buscando sensibilizar acerca de la explotación a la que son sometidos los animales no-humanos pero, sobre todo, impulsando los cambios legislativos necesarios que permitan mejorar la vida de los animales.</p>
                 </header>
                 <div class="row">
-                    
+
                     <!--  Solo 6 eventos/campañas para que tenga sentido ir a una pagina solo con campañas    -->
-                    @foreach(var entry in Model.first6Camp)
+                    @foreach (var entry in Model.first6Camp)
                     {
                         boxes++;
                         <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
                             <div class="box">
                                 <a href="@Url.Action("Details","Entries",new { entry.Id})" class="boxlink"></a>
                                 <div class="container">
-                                <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
-                                <h4 class="title">
-                                    <a href="@Url.Action("Details","Entries",new { entry.Id})">@entry.Tittle</a>
-                                </h4>
-                                @{
-                                    string mmm = "";
-                                    if (entry.Content.Length > 200)
-                                    {
-                                        mmm = entry.Content.Substring(0, 198).Insert(198, "...");
+                                    <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                    <h4 class="title">
+                                        <a href="@Url.Action("Details","Entries",new { entry.Id})">@entry.Tittle</a>
+                                    </h4>
+                                    @{
+                                        string mmm = "";
+                                        if (entry.Content.Length > 200)
+                                        {
+                                            mmm = entry.Content.Substring(0, 198).Insert(198, "...");
+                                        }
+                                        else
+                                        {
+                                            mmm = entry.Content;
+                                        }
                                     }
-                                    else
+                                    <p class="description">@mmm</p>
+                                    @if (entry.imgData != null)
                                     {
-                                        mmm = entry.Content;
-                                    }
-                                }
-                                <p class="description">@mmm</p>
-                                @if (entry.imgData != null)
-                                {
 
-                                    var base64 = Convert.ToBase64String(entry.imgData);
-                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-                                    <a href="@Url.Action("Details","Entries",new { entry.Id})">
-                                        <img src="@imgSrc"  class="entryImage"/>
-                                    </a>
-                                }
+                                        var base64 = Convert.ToBase64String(entry.imgData);
+                                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                        <a href="@Url.Action("Details","Entries",new { entry.Id})">
+                                            <img src="@imgSrc" class="entryImage" />
+                                        </a>
+                                    }
 
 
                                 </div>
                             </div>
                         </div>
                     }
+
+
+
+            </div>
                     @if (boxes == 0)
                     {
                         <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
@@ -181,13 +185,20 @@
                                 </p>
                             </div>
                         </div>
-                        
                     }
-
-
-                </div>
-
-            </div>
+                    else
+                    {<div class="container">
+                         <div class="row">
+                             <div class="col-lg-4 cta-btn-container text-center" >
+                             </div>
+                             <div class="col-lg-4 cta-btn-container text-center" style="border: solid #1bb1dc">
+                                 <a class="cta-btn align-middle" href="@Url.Action("Index","Entries")">Mira todos los eventos</a>
+                             </div>
+                             <div class="col-lg-4 cta-btn-container text-center" >
+                             </div>
+                         </div>
+                    </div>
+                    }
         </section><!-- #services -->
         <!--==========================
           Call To Action Section
