@@ -21,7 +21,7 @@ namespace WebLibera.Controllers
         // GET: Entries
         public ActionResult Index()
         {
-            var entries = db.Entries;
+            var entries = db.Entries.OrderByDescending(x=>x.Id);
             foreach(var entry in entries)
             {
                 entry.User = null;//porque si no se ve la contraseña de los usuarios si se fijan en algun lado
