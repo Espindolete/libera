@@ -127,13 +127,19 @@ namespace WebLibera.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Tittle,Content,UserId")] Entry entry)
         {
+            Entry mm= db.Entries.Where(x=>x.Id==entry.Id).Single();
+            if(entry.Tittle!=mm.Tittle || entry.Content != mm.Content)
+            {
+                mm.Tittle = entry.Tittle;
+                mm.Content = entry.Content;
+            }
             if (ModelState.IsValid)
             {
-                db.Entry(entry).State = EntityState.Modified;
+                db.Entry(mm).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Username", entry.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Username", mm.UserId);
             return View(entry);
         }
 
